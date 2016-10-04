@@ -7,7 +7,7 @@ function main(){
 	function clickValider(){
 		var nombre = parseInt($('#input').val(),10);
 		console.log(nombre);
-		if(nombre === 7){
+		if(nombre == 7){
 			alert('Gagné');
 		}else{
 			alert('Perdu');
