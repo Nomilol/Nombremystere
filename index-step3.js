@@ -9,38 +9,22 @@ function main(){
 	$(resultat).val();
 	var vies = resultat;
 	$("#vies").text(vies);
-
-	function choice(min,max){
 	var min = parseInt(prompt('Choissisez le nombre minimum du nombre mystère:',''));
 	console.log(min);
 	console.log(typeof(min));
 	var max = parseInt(prompt('Choisissez le nombre maximum du nombre mystère:',''));
-	console.log(max);
 	var nombreMystere = Math.floor((max-min+1)*Math.random())+min
+	console.log(max);
 	console.log(nombreMystere);
 
-
-}
-
-choice();
-
-	//var intervalle = prompt('Choisissez votre aire de jeu:','');
-	//Math.floor((max-min+1)*Math.random())+min	
-
-	// Créer et initialiser une variable 'globale' qui 
-	// va stocker le nombre "aléatoire" mystère.
-	//var rando = Math.floor(Math.random()*151);
-
-	// == Fonction clickValider == 
-	// Créer la fonction 'clickValider'
 	function clickValider(){
 		var nombre = parseInt($('#input').val(),10);
-		if(rando == nombre){
-			alert('Gagné !')
+		if(nombreMystere == nombre){
+			alert('Gagné !');
 
 		}
 
-		else if(nombre > rando){
+		else if(nombre > nombreMystere){
 			alert('Perdu, votre nombre est trop grand');
 			console.log(vies--);
 			$('#vies').text(vies);
@@ -55,20 +39,29 @@ choice();
 			alert('T\' es un GROS NOOB')
 		}
 
-		if(rando == nombre || vies == 0){
+		if(nombreMystere == nombre || vies == 0){
 			var resultat = prompt('Choisissez votre nombre de vies:','');
 			vies = resultat;
-			rando = Math.floor(Math.random()*151);
+			nombreMystere = Math.floor((max-min+1)*Math.random())+min;
 			$("#vies").text(vies);
 
 		}
-		
-		
-	};
+
+
+	}
 
 	$('#button').click(function(){
 		clickValider();
 	});
+
+	//Math.floor((max-min+1)*Math.random())+min	
+
+	// Créer et initialiser une variable 'globale' qui 
+	// va stocker le nombre "aléatoire" mystère.
+	//var rando = Math.floor(Math.random()*151);
+
+	// == Fonction clickValider == 
+	// Créer la fonction 'clickValider'
 }
 
 
