@@ -7,14 +7,11 @@ function main(){
 	// va stocker le nombre de tentatives restantes.
 	var resultat = prompt('Choisissez votre nombre de vies:','');
 	$(resultat).val();
-	var vies = resultat;
+	var vies = resultat; 
 	$("#vies").text(vies);
 	var min = parseInt(prompt('Choissisez le nombre minimum du nombre mystère:',''));
-	console.log(min);
-	console.log(typeof(min));
 	var max = parseInt(prompt('Choisissez le nombre maximum du nombre mystère:',''));
 	var nombreMystere = Math.floor((max-min+1)*Math.random())+min
-	console.log(max);
 	console.log(nombreMystere);
 
 	function clickValider(){
@@ -42,17 +39,26 @@ function main(){
 		if(nombreMystere == nombre || vies == 0){
 			var resultat = prompt('Choisissez votre nombre de vies:','');
 			vies = resultat;
+			var min = parseInt(prompt('Choissisez le nombre minimum du nombre mystère:',''));
+			var max = parseInt(prompt('Choisissez le nombre maximum du nombre mystère:',''));
 			nombreMystere = Math.floor((max-min+1)*Math.random())+min;
 			$("#vies").text(vies);
-
+			console.log(nombreMystere);
 		}
 
-
 	}
-
 	$('#button').click(function(){
 		clickValider();
 	});
+
+
+
+
+
+
+
+
+
 
 	//Math.floor((max-min+1)*Math.random())+min	
 
