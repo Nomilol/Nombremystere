@@ -5,51 +5,87 @@ function main(){
 
 	// Créer et initialiser une variable 'globale' qui 
 	// va stocker le nombre de tentatives restantes.
-	var resultat = prompt('Choisissez votre nombre de vies:','');
-	$(resultat).val();
-	var vies = resultat; 
+	var vies;
+	$(vies).val();
 	$("#vies").text(vies);
-	var min = parseInt(prompt('Choissisez le nombre minimum du nombre mystère:',''));
-	var max = parseInt(prompt('Choisissez le nombre maximum du nombre mystère:',''));
-	var nombreMystere = Math.floor((max-min+1)*Math.random())+min
-	console.log(nombreMystere);
+	var min;
+	var max ;
+	var nombreMystere; 
+	var nombre;
+	var resultat;
+	//console.log(nombreMystere);
 
-	function clickValider(){
-		var nombre = parseInt($('#input').val(),10);
-		if(nombreMystere == nombre){
-			alert('Gagné !');
+function demarrerPartie(){ // Ne pas oublier d'apeller la fonction
+vie = prompt('Choisissez votre nombre de vies:','');
+min = parseInt(prompt('Choissisez le nombre minimum du nombre mystère:',''));
+max = parseInt(prompt('Choisissez le nombre maximum du nombre mystère:',''));
+nombreMystere = Math.floor((max-min+1)*Math.random())+min
+$("#vies").text(vies);
+console.log(nombreMystere);
+}
 
-		}
 
-		else if(nombre > nombreMystere){
-			alert('Perdu, votre nombre est trop grand');
-			console.log(vies--);
-			$('#vies').text(vies);
 
-		}else{
-			alert('Perdu, votre nombre est trop petit');
-			console.log(vies--);
-			$('#vies').text(vies);
-		}
 
+
+function clickValider(){
+	if(partieGagnee()){
+	};
+
+
+if(nombre > nombreMystere){
+	alert('Perdu, votre nombre est trop grand');
+	console.log(vies--);
+	$('#vies').text(vies);
+
+}
+
+else if(nombre < nombreMystere){
+	alert('Perdu, votre nombre est trop petit');
+	console.log(vies--);
+	$('#vies').text(vies);
+}
+
+if(nombreMystere == nombre || vies == 0){
+	demarrerPartie();
+}
+
+function partieGagnee(){
+	nombre = parseInt($('#input').val(),10);
+	return nombreMystere == nombre
+	alert('GG GROS');
+
+	function partiePerdue(){
 		if(vies == 0){
 			alert('T\' es un GROS NOOB')
-		}
-
-		if(nombreMystere == nombre || vies == 0){
-			var resultat = prompt('Choisissez votre nombre de vies:','');
-			vies = resultat;
-			var min = parseInt(prompt('Choissisez le nombre minimum du nombre mystère:',''));
-			var max = parseInt(prompt('Choisissez le nombre maximum du nombre mystère:',''));
-			nombreMystere = Math.floor((max-min+1)*Math.random())+min;
-			$("#vies").text(vies);
-			console.log(nombreMystere);
-		}
-
+		};
 	}
-	$('#button').click(function(){
-		clickValider();
-	});
+}
+
+}
+
+demarrerPartie();
+
+
+$('#button').click(function(){
+	clickValider();
+});
+}
+
+
+
+
+
+
+
+
+
+} // Ne pas oublier d'apeller la fonction
+
+
+ // Ne pas oublier d'appeller la fonction
+
+
 
 
 
@@ -68,7 +104,7 @@ function main(){
 
 	// == Fonction clickValider == 
 	// Créer la fonction 'clickValider'
-}
+
 
 
 
