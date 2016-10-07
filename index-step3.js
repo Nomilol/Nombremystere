@@ -4,10 +4,7 @@ function main(){
 
 	
 	var vies;
-	$(vies).val();
-	$("#vies").text(vies);
-	var nombreMystere; 
-	var resultat;
+	var nombreMystere;
 
 	function demarrerPartie(){ 
 
@@ -21,13 +18,11 @@ function main(){
 
 	function clickValider(){
 		var userNombre = parseInt($('input').val(),10);
-		//debugger
 
 		if( userNombre > nombreMystere){
 			alert('Perdu, votre nombre est trop grand');
 			console.log(vies--);
 			$('#vies').text(vies);
-
 		}
 
 		else if(userNombre < nombreMystere){
@@ -35,36 +30,38 @@ function main(){
 			console.log(vies--);
 			$('#vies').text(vies);
 		}
-		else if (userNombre === nombreMystere){
+		else(userNombre === nombreMystere){
 			partieGagnee();
-
-
 		}
 
 		if(nombreMystere === userNombre || vies === 0){
+			partiePerdue();
 			demarrerPartie();
 		}
 
 	}
 
-
 	function partieGagnee(){
 		alert('GG GROS');
-
 
 	}
 
 	function partiePerdue(){
 		alert('T\'es un GROS NOOB');
-		vies === 0;
 		demarrerPartie();
 	};
 
 	demarrerPartie();
+
 	$('#button').click(function(){
 		clickValider();
 	});
 }
+
+
+
+
+
 
 
 
